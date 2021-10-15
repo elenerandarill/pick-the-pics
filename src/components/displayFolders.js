@@ -1,14 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from "react-redux"
+import { selectFolders, append } from '../features/foldersSlice'
+import Folder from "../objects/folder";
 
 const DisplayFolders = () => {
-    const [folders, setFolders] = useState([
-        {name: "favourites", pictures: ["#1", "#2"]},
-        {name: "for later", pictures: ["#33", "#66"]},
-        {name: "favourites2", pictures: ["#1", "#2"]},
-        {name: "favourites3", pictures: ["#55"]},
-        {name: "favourites4", pictures: ["#1", "#2"]},
-        {name: "favourites5", pictures: []},
-    ])
+    // const folders = useSelector((state) => state.foldersList.folders)
+    /** @type {Folder[]} */
+    const folders = useSelector(selectFolders)
+    const dispatch = useDispatch()
+
+    console.log("///////folders ", folders)
+
+
+    /**
+     * Append Folder to a list of Folders
+     * @param folder {Folder}
+     */
+    const appendFolder = (folder) => {
+        dispatch(append(folder))
+    }
 
     return (
         <div className="center-folders">
@@ -23,8 +33,8 @@ const DisplayFolders = () => {
             <div className="items-container">
                 {folders.map((f) => {
                     return (
-                        <div key={f.name.toString()} className="folder">
-                            {f.name} ({f.pictures.length})
+                        <div key={Math.random() * 10} className="folder">
+                            {`${f.name} (${f.photos.length})`}
                         </div>
                     )
                 })
@@ -32,7 +42,7 @@ const DisplayFolders = () => {
             </div>
             <div
                 className="btn btn-outline-info"
-                onClick={() => console.log("It will create new folder")}
+                onClick={() => appendFolder(new Folder("nowy", ["321"]))}
             >
                 + create folder
             </div>

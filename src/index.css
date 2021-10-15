@@ -71,6 +71,9 @@ code {
   padding: 5px 30px 5px 30px;
   justify-items: center;
   align-items: center;
+  justify-self: center;
+  width: 90%;
+  max-width: 800px;
 }
 .center-results {
   grid-area: results;
@@ -87,6 +90,9 @@ input.form-control {
   background: var(--dark);
 }
 input.form-control:focus:active{
+  background: var(--blue);
+}
+input.form-control:active{
   background: var(--blue);
 }
 

@@ -23,7 +23,7 @@ const DisplayPhotos = () => {
                 <div className="items-container">
                     {searchResults.map((r) => {
                             return (
-                                <div className="photo-thumbnail">
+                                <div key={Math.random() * 10} className="photo-thumbnail">
                                     {r}
                                 </div>
                             )

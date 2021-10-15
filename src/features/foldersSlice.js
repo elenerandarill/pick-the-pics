@@ -5,7 +5,13 @@ import Folder from "../objects/folder";
  * @type {{foldersList: Folder[]}}
  */
 const initialState = {
-    foldersList: []
+    foldersList: [
+           new Folder("favourites", ["#1", "#2"]),
+           new Folder("favourites2", ["#11", "#22"]),
+           new Folder("favourites3", ["#21"]),
+           new Folder("favourites4", []),
+           new Folder("for later", []),
+    ]
 }
 
 const foldersSlice = createSlice(
@@ -14,7 +20,7 @@ const foldersSlice = createSlice(
         initialState,
         reducers: {
             append(state, action){
-            state.foldersList.append(action.payload)
+                state.foldersList.push(action.payload)
             },
             remove(state, action){
                 state.foldersList.splice(action.payload, 1)
@@ -24,4 +30,5 @@ const foldersSlice = createSlice(
 )
 
 export const { append, remove } = foldersSlice.actions;
+export const selectFolders = (state) => state.folders.foldersList;
 export default foldersSlice.reducer;
