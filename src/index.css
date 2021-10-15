@@ -1,13 +1,127 @@
+/* ------ colors ------ */
+:root {
+  --white: #ffffff;
+  --gray01: #F9F9F9;
+  --gray02: #C2C2C2;
+  --gray03: #9A9A9A;
+  --dark: #3b3b3b;
+  --dark2: #242424;
+  --blue: #00AFD9;
+  --purple: #9c217f;
+  --water: #8095ac;
+}
+/* ------ colors ------ */
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /*margin: 0;*/
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark2);
+  color: var(--gray02);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  row-gap: 15px;
+  grid-template-areas:
+  "header header header"
+  "left-marg center right-marg"
+  "footer footer footer";
+
+
+}
+.body-center {
+  grid-area: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "folders"
+    "search"
+    "results";
+  width: 100%;
+}
+
+.center-folders {
+  grid-area: folders;
+  display: grid;
+  padding: 30px;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.center-search {
+  grid-area: search;
+  padding: 5px 30px 5px 30px;
+  justify-items: center;
+  align-items: center;
+}
+.center-results {
+  grid-area: results;
+  padding: 5px 30px 50px 30px;
+  justify-items: center;
+  align-items: center;
+}
+
+.input-group:active:focus {
+  background: var(--purple);
+}
+input.form-control {
+  font-weight: 200;
+  background: var(--dark);
+}
+input.form-control:focus:active{
+  background: var(--blue);
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.folder {
+  border: var(--gray03) solid 1px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 200;
+  padding: 15px 20px;
+  margin: 3px;
+}
+
+h1 {
+  color: var(--blue);
+  margin-bottom: 30px;
+}
+
+.txt-small {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.photo-thumbnail {
+  border: var(--gray03) solid 1px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 200;
+  padding: 15px 20px;
+  margin: 3px;
 }
