@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux"
-import { selectFolders, append } from '../features/foldersSlice'
+import { selectFolders, append } from '../features/folders/foldersSlice'
 import Folder from "../objects/folder";
 
 const DisplayFolders = () => {
@@ -16,7 +16,8 @@ const DisplayFolders = () => {
      * @param folder {Folder}
      */
     const appendFolder = (folder) => {
-        dispatch(append(folder))
+        // class-object has to be changed to js-object > {...object}
+        dispatch(append({...folder}))
     }
 
     return (
@@ -26,7 +27,7 @@ const DisplayFolders = () => {
             <h1>pick-the-pics</h1>
 
             {folders.length === 0
-                ? <div>"create a new folder for your pictures"</div>
+                ? <div>create new folder for saving your pictures</div>
                 : <div>your folders</div>}
 
             <div className="items-container">
