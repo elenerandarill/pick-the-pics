@@ -1,5 +1,6 @@
 
 class Folder {
+
     /** @type {string} */
     name
     /** @type {string[]} */

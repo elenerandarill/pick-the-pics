@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const SearchBox = () => {
-    const [query, setQuery] = useState("")
+    const [searchQuery, setSearchQuery] = useState("")
 
     return (
         <div className="center-search">
@@ -10,7 +10,7 @@ const SearchBox = () => {
                 <div className="input-group mb-3">
                     <div
                         className="input-group-text btn btn-outline-info"
-                        id="query"
+                        id="searchQuery"
                         onClick={() => console.log("send request")}
                     >
                         search

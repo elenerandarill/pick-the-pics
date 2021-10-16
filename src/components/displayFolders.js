@@ -4,13 +4,12 @@ import { selectFolders, append } from '../features/foldersSlice'
 import Folder from "../objects/folder";
 
 const DisplayFolders = () => {
-    // const folders = useSelector((state) => state.foldersList.folders)
+    // const folders = useSelector((state) => state.folders.foldersList)
     /** @type {Folder[]} */
     const folders = useSelector(selectFolders)
     const dispatch = useDispatch()
 
     console.log("///////folders ", folders)
-
 
     /**
      * Append Folder to a list of Folders
@@ -31,10 +30,10 @@ const DisplayFolders = () => {
                 : <div>your folders</div>}
 
             <div className="items-container">
-                {folders.map((f) => {
+                {folders.map((folder) => {
                     return (
                         <div key={Math.random() * 10} className="folder">
-                            {`${f.name} (${f.photos.length})`}
+                            {`${folder.name} (${folder.photos.length})`}
                         </div>
                     )
                 })
