@@ -1,4 +1,4 @@
-import { createApi, reactHooksModule, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 
 const API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY

@@ -13,7 +13,7 @@ function App() {
 
                 <div className="body-center">
                     <DisplayFolders/>
-                    {/*<ListFolder/>*/}
+                    <ListFolder/>
                     <SearchBox/>
                     <DisplaySearch/>
                 </div>

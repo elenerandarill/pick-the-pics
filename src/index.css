@@ -136,6 +136,7 @@ input.form-control:active{
   font-weight: 200;
   padding: 15px 20px;
   margin: 3px;
+  cursor: pointer;
 }
 
 /* ------ text ------ */

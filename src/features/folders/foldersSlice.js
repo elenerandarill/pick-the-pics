@@ -2,11 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 /** @type {{foldersList: Folder[]}} */
 const initialState = {
-    foldersList: [
-        // {name: "cats", photos: []},
-        // {name: "dogs", photos: []},
-    ],
-    chosenFolder: undefined
+    foldersList: [],
+    chosenFolder: undefined,
+    displayedFolder: undefined
 }
 
 const foldersSlice = createSlice(
@@ -25,6 +23,7 @@ const foldersSlice = createSlice(
                 // payload == folder's name
                 state.chosenFolder = action.payload
             },
+            // TODO znalezc gdzie jest to i moze przekazywac obj zamiast name???
             findFolderByName(state, action){
                 const name = action.payload
                 if (state.foldersList.length > 0){
@@ -39,12 +38,17 @@ const foldersSlice = createSlice(
                         folder.photos.push(photoId)
                     }
                 })
+            },
+            setFolderToDisplay(state, action){
+                // obj
+                state.displayedFolder = action.payload
             }
         }
     }
 )
 
-export const { append, remove, setChosenFolder, findFolderByName, saveToFolder } = foldersSlice.actions
+export const { append, remove, setChosenFolder, findFolderByName, saveToFolder, setFolderToDisplay } = foldersSlice.actions
 export const selectFolders = (state) => state.folders.foldersList
 export const selectChosenFolder = (state) => state.folders.chosenFolder
+export const selectDisplayedFolder = (state) => state.folders.displayedFolder
 export default foldersSlice.reducer
