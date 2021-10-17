@@ -1,6 +1,4 @@
-// import {  createApi } from '@reduxjs/toolkit/query'
 import { createApi, reactHooksModule, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import Photo from "../../objects/photo";
 
 
 const API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY

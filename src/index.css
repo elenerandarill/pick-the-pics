@@ -54,6 +54,7 @@ code {
   grid-template-areas:
     "title"
     "folders"
+    "center-list-folder"
     "search"
     "save"
     "results";
@@ -74,6 +75,12 @@ code {
   align-items: center;
   justify-content: space-around;
 }
+.center-list-folder {
+  grid-area: center-list-folder;
+  padding: 5px 30px 50px 30px;
+  justify-items: center;
+  align-items: center;
+}
 .center-search {
   grid-area: search;
   padding: 15px 0;
@@ -85,6 +92,8 @@ code {
 }
 .center-save {
   grid-area: save;
+  justify-self: center;
+  /*width: 40%;*/
 }
 .center-results {
   grid-area: results;
@@ -205,7 +214,30 @@ input.form-control:active{
 
 .active-photo-picked {
   border: var(--blue) solid 1px;
+  /*border-radius: 5px;*/
+  /*padding: 3px;*/
+  /*margin: 3px;*/
+}
+
+.add-folder-form {
+  border: var(--gray03) solid 1px;
   border-radius: 5px;
-  padding: 3px;
-  margin: 3px;
+}
+
+.icon-cancel {
+  height: 32px;
+  width: 32px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.create-folder-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
+.save-folder-container {
+  display: flex;
+  /*grid-template-columns: auto auto auto;*/
+  align-items: center;
 }

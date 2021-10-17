@@ -1,6 +1,4 @@
 import { createSlice , } from "@reduxjs/toolkit";
-import Photo from "../../objects/photo";
-
 
 /** @type {{photosFetched: Photo[]}} */
 const initialState = {
@@ -28,6 +26,6 @@ const photosSlice = createSlice(
     }
 )
 
-export const { togglePickedPhotos, clearPickedPhotos } = photosSlice.actions
+export const { togglePickedPhotos, clearPickedPhotos, saveToFolder } = photosSlice.actions
 export const selectPhotosPicked = (state) => state.photos.photosPicked
 export default photosSlice.reducer

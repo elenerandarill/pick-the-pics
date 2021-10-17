@@ -17,8 +17,7 @@ const SearchBox = () => {
                     onClick={() => {
                         dispatch(clearPickedPhotos())
                         dispatch(setQuery(userQuery))
-                    }
-                    }
+                    }}
                 >
                     search
                 </div>
@@ -26,7 +25,7 @@ const SearchBox = () => {
                 <input type="text"
                        className="form-control"
                        aria-label="SearchingPhotos"
-                       aria-describedby="searching-photos"
+                       placeholder="give us a word..."
                        onChange={(e) => {
                            setUserQuery(e.target.value)
                        }}
