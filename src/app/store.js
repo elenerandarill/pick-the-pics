@@ -1,13 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import foldersReducer from '../features/folders/foldersSlice';
-import photosReducer from '../features/photos/photosSlice';
-import { unsplashApiSlice } from "../features/unsplash/unsplashApiSlice";
+import foldersReducer from '../features/folders/foldersSlice'
+import photosReducer from '../features/photos/photosSlice'
+import searchReducer from "../features/unsplash/unsplashSearchSlice"
+import { configureStore } from '@reduxjs/toolkit'
+import { unsplashApiSlice } from "../features/api/unsplashApiSlice"
 
 
 export const store = configureStore({
   reducer: {
     folders: foldersReducer,
     photos: photosReducer,
+    search: searchReducer,
     [unsplashApiSlice.reducerPath]: unsplashApiSlice.reducer
     // unsplashApi: unsplashApiSlice.reducer
   },

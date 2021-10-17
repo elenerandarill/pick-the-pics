@@ -17,7 +17,7 @@ export const unsplashApiSlice = createApi({
     endpoints: (builder) => ({
         fetchSearch: builder.query({
             query: (searchQuery) => {
-                return `/search/photos?query=${searchQuery}&page=1&per_page=10`
+                    return `/search/photos?query=${searchQuery}&page=1&per_page=10`
             }
         }),
         getPhotoById: builder.query({

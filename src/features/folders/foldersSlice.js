@@ -14,7 +14,7 @@ const foldersSlice = createSlice(
         initialState,
         reducers: {
             append(state, action){
-                console.log("action.payload: ", action.payload)
+                console.log("folder append action.payload: ", action.payload)
                 state.foldersList.push(action.payload)
             },
             removeFolder(state, action){

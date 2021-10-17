@@ -21,32 +21,36 @@ const DisplayFolders = () => {
     }
 
     return (
-        <div className="center-folders">
-            <div className="txt-small">welcome to</div>
-
-            <h1>pick-the-pics</h1>
-
-            {folders.length === 0
-                ? <div>create new folder for saving your pictures</div>
-                : <div>your folders</div>}
-
-            <div className="items-container">
-                {folders.map((folder) => {
-                    return (
-                        <div key={Math.random() * 10} className="folder">
-                            {`${folder.name} (${folder.photos.length})`}
-                        </div>
-                    )
-                })
-                }
+        <>
+            <div className="center-header">
+                <div className="txt-small">welcome to</div>
+                <div className="txt-title mb-2">pick-the-pics</div>
             </div>
-            <div
-                className="btn btn-outline-info"
-                onClick={() => appendFolder(new Folder("nowy", ["321"]))}
-            >
-                + create folder
+
+            <div className="center-folders">
+
+                {folders.length === 0
+                    ? <div className="txt-small">[ no folders yet... ]</div>
+                    : <div>your folders</div>}
+
+                <div className="items-container">
+                    {folders.map((folder) => {
+                        return (
+                            <div key={Math.random() * 10} className="folder m-3">
+                                {`${folder.name} (${folder.photos.length})`}
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+                <div
+                    className="btn btn-outline-info mt-2"
+                    onClick={() => appendFolder(new Folder("nowy", ["321"]))}
+                >
+                    + create folder
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
