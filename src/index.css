@@ -7,7 +7,7 @@
   --dark: #3b3b3b;
   --dark2: #242424;
   --blue: #00AFD9;
-  --purple: #FF499E;
+  --purple: #DC3545;
   --water: #8095ac;
 }
 /* ------ basic ------ */
@@ -74,9 +74,12 @@ body {
 }
 .center-list-folder {
   grid-area: center-list-folder;
-  padding: 5px 30px 50px 30px;
+  /*padding: 5px 30px 50px 30px;*/
   justify-items: center;
   align-items: center;
+  text-align: center;
+  /*border: var(--purple) solid 1px;*/
+  /*border-radius: 5px;*/
 }
 .center-search {
   grid-area: search;

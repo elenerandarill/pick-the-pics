@@ -7,7 +7,7 @@ You can see it here: https://pick-the-pics.herokuapp.com/
 
 # usage
 User can:
-- create folders
+- create/delete folders
 - search for pictures
 - mark photos as picked
 - choose folder to assign those pictures to it
@@ -37,7 +37,7 @@ App communicates with **Unsplash API** https://unsplash.com/documentation.
 **Secret_key** is **required** and available after registration here: https://unsplash.com/developers
 
 See file `api/unsplashApiSlice.js`. 
-Here you can see the usage of environmental variable named `API_KEY`, 
+Here you can see the usage of environmental variable named `REACT_APP_UNSPLASH_API_KEY`, 
 under which the secret key should be saved.
 
 

@@ -9,7 +9,7 @@ const SearchBox = () => {
 
 
     const handleKeyDown = (event) => {
-        console.log("Enter clicked inside")
+        // console.log("Enter clicked inside")
         if (event.key === 'Enter') {
             dispatch(clearPickedPhotos())
             dispatch(setQuery(userQuery))

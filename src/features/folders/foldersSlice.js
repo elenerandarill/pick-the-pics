@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
 /** @type {{foldersList: Folder[]}} */
 const initialState = {
@@ -18,7 +18,9 @@ const foldersSlice = createSlice(
                 state.foldersList.push(action.payload)
             },
             removeFolder(state, action){
-                state.foldersList.splice(action.payload, 1)
+                state.foldersList = state.foldersList.filter(
+                    folder => folder.name !== action.payload.name
+                )
             },
             setChosenFolder(state, action){
                 // payload == folder's name
@@ -54,7 +56,7 @@ const foldersSlice = createSlice(
     }
 )
 
-export const { append, remove, setChosenFolder, saveToFolder, setFolderToDisplay,
+export const { append, removeFolder, setChosenFolder, saveToFolder, setFolderToDisplay,
     getFolderListFromMemory, updateFolderListInMemory } = foldersSlice.actions
 export const selectFolders = (state) => state.folders.foldersList
 export const selectChosenFolder = (state) => state.folders.chosenFolder

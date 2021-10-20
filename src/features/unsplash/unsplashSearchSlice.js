@@ -11,7 +11,7 @@ const unsplashSearchSlice = createSlice(
         initialState,
         reducers: {
             setQuery(state, action){
-                console.log("searchQuery set action.payload: ", action.payload)
+                // console.log("searchQuery set action.payload: ", action.payload)
                 state.searchQuery = action.payload
             }
         }
