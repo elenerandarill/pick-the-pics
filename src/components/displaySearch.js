@@ -1,7 +1,12 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {selectPhotosPicked} from "../features/photos/photosSlice";
-import {selectFolders, selectChosenFolder, saveToFolder} from "../features/folders/foldersSlice";
+import {
+    selectFolders,
+    selectChosenFolder,
+    saveToFolder,
+    updateFolderListInMemory
+} from "../features/folders/foldersSlice";
 import SelectDropdown from "./selectDropdown";
 import ResultsDisplay from "./resultsDisplay";
 import {toast} from "react-toastify"
@@ -36,9 +41,13 @@ const DisplaySearch = () => {
 
                         <div className="btn btn-outline-info m-2"
                              title="save selection to folder"
-                             onClick={() => chosenFolder
-                                 ? savePhotosToFolder()
-                                 : toast.info("Pick the folder")}
+                             onClick={() => {
+                                 chosenFolder
+                                     ? savePhotosToFolder()
+                                     : toast.error("Pick the folder")
+                                 dispatch(updateFolderListInMemory())
+                             }
+                             }
                         >
                             save
                         </div>

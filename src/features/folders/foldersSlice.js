@@ -12,8 +12,9 @@ const foldersSlice = createSlice(
         name: 'folders',
         initialState,
         reducers: {
+            /** @param action {Folder}*/
             append(state, action){
-                console.log("folder append action.payload: ", action.payload)
+                // Folder, but Jsonified.
                 state.foldersList.push(action.payload)
             },
             removeFolder(state, action){
@@ -35,12 +36,26 @@ const foldersSlice = createSlice(
             setFolderToDisplay(state, action){
                 // obj
                 state.displayedFolder = action.payload
+            },
+            getFolderListFromMemory(state){
+                if (typeof(window) !== 'undefined') {
+                    const saved = localStorage.getItem('appConfig')
+                    if (saved !== "" && saved !== null){
+                        state.foldersList = JSON.parse(saved)
+                    }
+                }
+            },
+            updateFolderListInMemory(state){
+                if (typeof(window) !== 'undefined') {
+                    localStorage.setItem('appConfig', JSON.stringify(state.foldersList))
+                }
             }
         }
     }
 )
 
-export const { append, remove, setChosenFolder, saveToFolder, setFolderToDisplay } = foldersSlice.actions
+export const { append, remove, setChosenFolder, saveToFolder, setFolderToDisplay,
+    getFolderListFromMemory, updateFolderListInMemory } = foldersSlice.actions
 export const selectFolders = (state) => state.folders.foldersList
 export const selectChosenFolder = (state) => state.folders.chosenFolder
 export const selectDisplayedFolder = (state) => state.folders.displayedFolder

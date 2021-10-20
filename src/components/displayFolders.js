@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from "react-redux"
-import {selectFolders, selectDisplayedFolder, setFolderToDisplay} from '../features/folders/foldersSlice'
+import {
+    selectFolders,
+    selectDisplayedFolder,
+    setFolderToDisplay,
+    getFolderListFromMemory
+} from '../features/folders/foldersSlice'
 import CreatingFolder from "./creatingFolder";
 
 const DisplayFolders = () => {
@@ -10,6 +15,9 @@ const DisplayFolders = () => {
     /** @type {Folder} */
     const folderToDisplay = useSelector(selectDisplayedFolder)
 
+    useEffect(() => {
+        dispatch(getFolderListFromMemory())
+    }, [])
 
     /** @param folder {Folder} */
     const toggleDisplay = (folder) => {

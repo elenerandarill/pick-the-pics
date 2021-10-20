@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import xsquare from "../media/x-square.svg";
 import Folder from "../objects/folder";
-import {append, selectFolders} from "../features/folders/foldersSlice";
+import {append, selectFolders, updateFolderListInMemory} from "../features/folders/foldersSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {toast} from "react-toastify";
 
@@ -36,6 +36,7 @@ const CreatingFolder = () => {
         dispatch(append({...folder}))
         setFolderName("")
         setAddingFolder(false)
+        dispatch(updateFolderListInMemory())
     }
 
 

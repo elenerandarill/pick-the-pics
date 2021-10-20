@@ -88,7 +88,12 @@ body {
 }
 .center-save {
   grid-area: save;
-  justify-self: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "desc"
+    "search-save";
 }
 
 .center-results {
@@ -240,7 +245,7 @@ input.form-control:focus:active{
   align-items: center;
 }
 .save-folder-container {
-  display: flex;
+  grid-area: search-save;
   /*grid-template-columns: auto auto auto;*/
   align-items: center;
 }
@@ -258,7 +263,7 @@ div.sticky {
   background-color: white;
   top: 0;
   z-index: 100;
-  width: 100%;
+  width: auto;
 }
 
 select {
