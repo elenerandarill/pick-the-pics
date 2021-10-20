@@ -3,6 +3,7 @@ import xsquare from "../media/x-square.svg";
 import Folder from "../objects/folder";
 import {append, selectFolders} from "../features/folders/foldersSlice";
 import {useDispatch, useSelector} from "react-redux";
+import {toast} from "react-toastify";
 
 const CreatingFolder = () => {
     /** @type {Folder[]} */
@@ -24,11 +25,11 @@ const CreatingFolder = () => {
 
     const appendFolder = (name) => {
         if (!name){
-            return alert("enter a name")
+            return toast.info("enter a name")
         }
         setAddingFolder(true)
         if (!isFolderNew(name)){
-            return alert("name must be unique")
+            return toast.error("name must be unique")
         }
         const folder = new Folder(name, [])
         // class-object has to be changed to js-object > {...object}

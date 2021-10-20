@@ -58,7 +58,7 @@ const ResultsDisplay = () => {
                                      className="img-thumb"/>
 
                                 <div className="text-overlay">
-                                    <div className="save-photo">pick</div>
+                                    <div className="txt-pick">pick</div>
                                 </div>
                             </div>
                         )

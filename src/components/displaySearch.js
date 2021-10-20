@@ -4,6 +4,8 @@ import {selectPhotosPicked} from "../features/photos/photosSlice";
 import {selectFolders, selectChosenFolder, saveToFolder} from "../features/folders/foldersSlice";
 import SelectDropdown from "./selectDropdown";
 import ResultsDisplay from "./resultsDisplay";
+import {toast} from "react-toastify"
+
 
 const DisplaySearch = () => {
     const photosPicked = useSelector(selectPhotosPicked)
@@ -18,11 +20,12 @@ const DisplaySearch = () => {
 
     const savePhotosToFolder = () => {
         dispatch(saveToFolder(photosPicked))
+        toast.success("Pictures saved!");
     }
 
     return (
         <>
-            <div className="center-save m-2">
+            <div className="center-save m-2 sticky">
                 {photosPicked.length > 0
                 &&
                 <>
@@ -35,7 +38,7 @@ const DisplaySearch = () => {
                              title="save selection to folder"
                              onClick={() => chosenFolder
                                  ? savePhotosToFolder()
-                                 : alert("Pick the folder")}
+                                 : toast.info("Pick the folder")}
                         >
                             save
                         </div>

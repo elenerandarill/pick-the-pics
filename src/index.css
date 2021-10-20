@@ -18,7 +18,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--gray02);
+  background-color: white;
   color: var(--dark2);
 }
 
@@ -105,12 +105,8 @@ body {
 }
 input.form-control {
   font-weight: 200;
-  background: var(--dark);
 }
 input.form-control:focus:active{
-  background: var(--blue);
-}
-input.form-control:active{
   background: var(--blue);
 }
 
@@ -183,9 +179,9 @@ input.form-control:active{
 .photo-thumbnail:hover {
   border: var(--blue) solid 1px;
 }
-.photo-thumbnail:active {
-  border: var(--blue) solid 1px;
-}
+/*.photo-thumbnail:active {*/
+/*  border: var(--blue) solid 2px;*/
+/*}*/
 
 .photo-thumbnail:hover .img-thumb{
   opacity: 0.2;
@@ -197,7 +193,7 @@ input.form-control:active{
   z-index: 1;
 }
 
-.save-photo {
+.txt-pick {
   color: var(--blue);
   font-size: 20px;
   padding: 16px 32px;
@@ -230,7 +226,7 @@ input.form-control:active{
 }
 
 .active-photo-picked {
-  border: var(--blue) solid 1px;
+  border: var(--blue) solid 2px;
 }
 
 .add-folder-form {
@@ -254,4 +250,27 @@ input.form-control:active{
   width: 32px;
   margin: 5px;
   cursor: pointer;
+}
+
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: white;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+select {
+  max-width: 550px;
+}
+
+footer {
+  font-size: 12px;
+  font-weight: 200;
+  color: var(--gray03);
+  border-top: solid 1px var(--gray02);
+  width: 60%;
+  text-align: center;
+  margin: auto;
 }

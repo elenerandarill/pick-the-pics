@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 import DisplayFolders from "./components/displayFolders";
 import DisplaySearch from "./components/displaySearch";
 import SearchBox from "./components/searchBox";
@@ -12,12 +14,14 @@ function App() {
             <div className="body-container">
 
                 <div className="body-center">
+                    <ToastContainer/>
                     <DisplayFolders/>
                     <ListFolder/>
                     <SearchBox/>
                     <DisplaySearch/>
                 </div>
             </div>
+            <footer>paulina@kawinska.net</footer>
         </div>
     );
 }
