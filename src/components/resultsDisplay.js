@@ -33,7 +33,7 @@ const ResultsDisplay = () => {
         <div className="center-results">
             <div className="mb-2">
                 {data.results.length > 0
-                && <div className="txt-blue m-2">
+                && <div className="txt-small txt-blue m-2 text-center">
                     and here is what we found for you
                     {photosPicked.length > 0
                     && <div title="clear selection"

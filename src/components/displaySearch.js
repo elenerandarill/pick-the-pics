@@ -18,10 +18,6 @@ const DisplaySearch = () => {
     const chosenFolder = useSelector(selectChosenFolder)
     const dispatch = useDispatch()
 
-    // console.log("/////////photosPicked for rendering: ", photosPicked)
-    // console.log("/////////chosenFolder: ", chosenFolder)
-    // console.log("/////////folders for rendering: ", folders.length)
-
 
     const savePhotosToFolder = () => {
         dispatch(saveToFolder(photosPicked))
@@ -34,7 +30,7 @@ const DisplaySearch = () => {
                 {photosPicked.length > 0
                 &&
                 <>
-                    <div>{`chose folder to save your (${photosPicked.length}) pics`}</div>
+                    <div className="text-center">{`chose folder to save your (${photosPicked.length}) pics`}</div>
                     <div className="save-folder-container">
 
                         <SelectDropdown/>

@@ -1,44 +1,62 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-## Available Scripts
+# demo
+Project was built in `Java Script` with `React` library.
 
-In the project directory, you can run:
+You can see it here: https://pick-the-pics.herokuapp.com/
 
-### `yarn start`
+# usage
+User can:
+- create folders
+- search for pictures
+- mark photos as picked
+- choose folder to assign those pictures to it
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Configuration of **folders + pictures** is being saved in `Local Storage`,
+so when user reloads the page, his/her configuration will be **remembered**.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# dependencies
+application *pic-the-pics* was created as a simple React app. 
+Dependencies:
 
-### `yarn test`
+```
+    "@reduxjs/toolkit": "^1.6.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-scripts": "4.0.3",
+    "react-toastify": "^8.0.3"
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Unsplash API
+App communicates with **Unsplash API** https://unsplash.com/documentation.
 
-### `yarn build`
+**Secret_key** is **required** and available after registration here: https://unsplash.com/developers
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+See file `api/unsplashApiSlice.js`. 
+Here you can see the usage of environmental variable named `API_KEY`, 
+under which the secret key should be saved.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# downloading and start
+Repository on `GitHub` : https://github.com/elenerandarill/pick-the-pics
 
-### `yarn eject`
+After downloading it open the project directory and **install** dependencies with:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm install`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+which means: *Install the dependencies in the local `node_modules` folder.*
+By default, npm install will install all modules 
+listed as dependencies in `package.json`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Next you can run:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`yarn start` or `npm start`
 
-## Learn More
+which will start the project on your machine here: 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# contribution
+Created by elener. 
