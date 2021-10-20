@@ -23,13 +23,6 @@ const foldersSlice = createSlice(
                 // payload == folder's name
                 state.chosenFolder = action.payload
             },
-            // TODO znalezc gdzie jest to i moze przekazywac obj zamiast name???
-            findFolderByName(state, action){
-                const name = action.payload
-                if (state.foldersList.length > 0){
-                    return state.foldersList.filter(f => f.name === name)[0]
-                }
-            },
             saveToFolder(state, action){
                 const photos = action.payload
                 const folder = state.foldersList.filter(f => f.name === state.chosenFolder)[0]
@@ -47,7 +40,7 @@ const foldersSlice = createSlice(
     }
 )
 
-export const { append, remove, setChosenFolder, findFolderByName, saveToFolder, setFolderToDisplay } = foldersSlice.actions
+export const { append, remove, setChosenFolder, saveToFolder, setFolderToDisplay } = foldersSlice.actions
 export const selectFolders = (state) => state.folders.foldersList
 export const selectChosenFolder = (state) => state.folders.chosenFolder
 export const selectDisplayedFolder = (state) => state.folders.displayedFolder

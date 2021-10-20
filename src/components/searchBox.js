@@ -8,6 +8,14 @@ const SearchBox = () => {
     const dispatch = useDispatch()
 
 
+    const handleKeyDown = (event) => {
+        console.log("Enter clicked inside")
+        if (event.key === 'Enter') {
+            dispatch(clearPickedPhotos())
+            dispatch(setQuery(userQuery))
+        }
+    }
+
     return (
         <div className="center-search">
             <div className="input-group">
@@ -26,6 +34,9 @@ const SearchBox = () => {
                        className="form-control"
                        aria-label="SearchingPhotos"
                        placeholder="give us a word..."
+                       onKeyDown={(e) => {
+                           handleKeyDown(e)
+                       }}
                        onChange={(e) => {
                            setUserQuery(e.target.value)
                        }}

@@ -7,25 +7,19 @@
   --dark: #3b3b3b;
   --dark2: #242424;
   --blue: #00AFD9;
-  --purple: #9c217f;
+  --purple: #FF499E;
   --water: #8095ac;
 }
-/* ------ colors ------ */
+/* ------ basic ------ */
 
 body {
-  /*margin: 0;*/
   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--dark2);
-  color: var(--gray02);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  background-color: var(--gray02);
+  color: var(--dark2);
 }
 
 * {
@@ -33,6 +27,8 @@ code {
   margin: 0;
   padding: 0;
 }
+
+/* ---- body grid ---- */
 
 .body-container {
   display: grid;
@@ -61,7 +57,7 @@ code {
   width: 100%;
 }
 
-/* ---- main grid ---- */
+/* ---- center grid ---- */
 
 .center-header {
   grid-area: title;
@@ -93,8 +89,8 @@ code {
 .center-save {
   grid-area: save;
   justify-self: center;
-  /*width: 40%;*/
 }
+
 .center-results {
   grid-area: results;
   padding: 5px 30px 50px 30px;
@@ -103,7 +99,6 @@ code {
 }
 
 /* ---- input ---- */
-
 
 .input-group:active:focus {
   background: var(--purple);
@@ -119,21 +114,27 @@ input.form-control:active{
   background: var(--blue);
 }
 
-/* ----  ---- */
-
-.items-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  padding: 5px 0;
-}
+/* ---- folders ---- */
 
 .folder {
   border: var(--gray03) solid 1px;
   border-radius: 5px;
   font-size: 18px;
   font-weight: 200;
+  padding: 15px 20px;
+  margin: 3px;
+  cursor: pointer;
+}
+.folder:hover {
+  border: var(--purple) solid 1px;
+}
+
+.folder-active{
+  border: var(--purple) solid 1px;
+  border-radius: 5px;
+  color: var(--purple);
+  font-size: 18px;
+  font-weight: 500;
   padding: 15px 20px;
   margin: 3px;
   cursor: pointer;
@@ -151,10 +152,9 @@ input.form-control:active{
 }
 .txt-blue {
   color: var(--blue);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 200;
 }
-
 
 /* ------ picture thumbnail ------ */
 
@@ -211,25 +211,31 @@ input.form-control:active{
   -ms-transform: translate(-50%, -50%)
 }
 
-/* ----  ---- */
+/* ---- other ---- */
+
+.pics-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.pics-item {
+  border: var(--purple) solid 1px;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 3px;
+  cursor: pointer;
+}
 
 .active-photo-picked {
   border: var(--blue) solid 1px;
-  /*border-radius: 5px;*/
-  /*padding: 3px;*/
-  /*margin: 3px;*/
 }
 
 .add-folder-form {
   border: var(--gray03) solid 1px;
   border-radius: 5px;
-}
-
-.icon-cancel {
-  height: 32px;
-  width: 32px;
-  margin: 5px;
-  cursor: pointer;
 }
 
 .create-folder-container {
@@ -241,4 +247,11 @@ input.form-control:active{
   display: flex;
   /*grid-template-columns: auto auto auto;*/
   align-items: center;
+}
+
+.icon-cancel {
+  height: 32px;
+  width: 32px;
+  margin: 5px;
+  cursor: pointer;
 }

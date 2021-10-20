@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux"
-import {selectFolders, append, selectDisplayedFolder, setFolderToDisplay} from '../features/folders/foldersSlice'
+import {selectFolders, selectDisplayedFolder, setFolderToDisplay} from '../features/folders/foldersSlice'
 import CreatingFolder from "./creatingFolder";
 
 const DisplayFolders = () => {
@@ -11,7 +11,14 @@ const DisplayFolders = () => {
     const folderToDisplay = useSelector(selectDisplayedFolder)
 
 
-    console.log("folderToDisplay: ", folderToDisplay)
+    /** @param folder {Folder} */
+    const toggleDisplay = (folder) => {
+        if (folderToDisplay === folder){
+            dispatch(setFolderToDisplay(undefined))
+        } else {
+            dispatch(setFolderToDisplay(folder))
+        }
+    }
 
     return (
         <>
@@ -26,14 +33,16 @@ const DisplayFolders = () => {
                     ? <div className="txt-small">[ no folders yet... ]</div>
                     : <div>your folders</div>}
 
-                <div className="items-container">
+                <div className="pics-container">
                     {folders.map((folder) => {
                         return (
-                            <div key={Math.random() * 10}
-                                 className="folder m-3"
+                            <div key={folder.name}
+                                 title="open/close"
+                                 className={`m-3 folder${
+                                     folderToDisplay === folder ? "-active" : "" 
+                                 }`}
                                  onClick={() => {
-                                     dispatch(setFolderToDisplay(folder))
-                                     console.log("folderToDisplay after click: ", folderToDisplay)
+                                     toggleDisplay(folder)
                                  }}
                             >
                                 {`${folder.name} (${folder.photos.length})`}

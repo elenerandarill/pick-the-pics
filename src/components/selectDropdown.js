@@ -11,13 +11,17 @@ const SelectDropdown = () => {
     return (
         <select value={chosenFolder}
                 className="form-select m-2"
-                onChange={(e)=> {
+                onChange={(e) => {
                     console.log("e: ", e.target.value)
                     dispatch(setChosenFolder(e.target.value))
                 }}
         >
-            <option disabled selected value>Wybierz</option>
-            {folders.map(f => <option value={f.name}>{f.name}</option>)}
+            <option disabled selected value>choose folder</option>
+            {folders.map(f => {
+                return (<option key={f.name} value={f.name}>
+                            {f.name}
+                        </option>)
+            })}
         </select>
     );
 };

@@ -2,18 +2,22 @@ import React from 'react';
 import {useGetPhotoByIdQuery} from "../features/api/unsplashApiSlice";
 
 const DisplayPhoto = ({pId}) => {
-    console.log("////////fethPhoto by ID: ", pId)
-    const { data, isError } = useGetPhotoByIdQuery(pId)
+    const { data, isError, isLoading } = useGetPhotoByIdQuery(pId)
 
+    if (isLoading) return <div>Loading...</div>
     if (isError) return <div>An error has occurred!</div>
+    // console.log("data >>> ", data)
 
     return(
-        <div>
-            <img src={data.results.urls.thumb}
-                 alt={data.results.description}
-                 aria-label={data.results.description}
+        <div key={pId}>
+            <div className="pics-item">
+            <img src={data.urls.thumb}
+                 alt={data.description}
+                 aria-label={data.description}
                  className="img-thumb"/>
-        </div>)
+            </div>
+        </div>
+    )
 };
 
 export default DisplayPhoto;

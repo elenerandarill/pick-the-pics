@@ -11,17 +11,12 @@ const DisplaySearch = () => {
     const chosenFolder = useSelector(selectChosenFolder)
     const dispatch = useDispatch()
 
-    console.log("/////////photosPicked for rendering: ", photosPicked)
-    console.log("/////////chosenFolder: ", chosenFolder)
-    console.log("/////////folders for rendering: ", folders.length)
+    // console.log("/////////photosPicked for rendering: ", photosPicked)
+    // console.log("/////////chosenFolder: ", chosenFolder)
+    // console.log("/////////folders for rendering: ", folders.length)
 
 
     const savePhotosToFolder = () => {
-        console.log("folders: ", folders)
-        console.log("chosenFolder: ", chosenFolder)
-
-        let folder =  folders.filter(f => f.name === chosenFolder)[0]
-        console.log("savePhotosToFolder - folder: ",folder )
         dispatch(saveToFolder(photosPicked))
     }
 
@@ -37,9 +32,10 @@ const DisplaySearch = () => {
                         <SelectDropdown/>
 
                         <div className="btn btn-outline-info m-2"
+                             title="save selection to folder"
                              onClick={() => chosenFolder
                                  ? savePhotosToFolder()
-                                 : console.log("Nie wybrano folderu")}
+                                 : alert("Pick the folder")}
                         >
                             save
                         </div>
@@ -48,7 +44,6 @@ const DisplaySearch = () => {
                 }
             </div>
 
-            {/*results display (data)*/}
             <ResultsDisplay/>
         </>
     );

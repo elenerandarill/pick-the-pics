@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectPhotosPicked, togglePickedPhotos} from "../features/photos/photosSlice";
+import {selectPhotosPicked, togglePickedPhotos, clearPickedPhotos} from "../features/photos/photosSlice";
 import {useFetchSearchQuery} from "../features/api/unsplashApiSlice";
 import {selectSearchQuery} from "../features/unsplash/unsplashSearchSlice";
 
@@ -33,7 +33,16 @@ const ResultsDisplay = () => {
         <div className="center-results">
             <div className="mb-2">
                 {data.results.length > 0
-                && <div className="txt-blue m-2">and here is what we found for you</div>}
+                && <div className="txt-blue m-2">
+                    and here is what we found for you
+                    {photosPicked.length > 0
+                    && <div title="clear selection"
+                            className="btn btn-outline-info btn-sm m-2"
+                            onClick={() => dispatch(clearPickedPhotos())}
+                    >
+                        clear
+                    </div>}
+                </div>}
             </div>
             <div className="imgs-container">
 

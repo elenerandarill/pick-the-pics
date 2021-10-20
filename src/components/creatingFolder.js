@@ -37,17 +37,21 @@ const CreatingFolder = () => {
         setAddingFolder(false)
     }
 
+
     return (
         <div>
             {!addingFolder
                 ? <div
                     className="btn btn-outline-info mt-2"
-                    onClick={() => setAddingFolder(true)}
+                    onClick={() => {
+                        setAddingFolder(true)
+                    }}
                 >
                     + create folder
                 </div>
 
                 : <div className="create-folder-container">
+
                     <div className="input-group">
                         <div
                             className="input-group-text btn btn-outline-info"
@@ -57,7 +61,9 @@ const CreatingFolder = () => {
                             create
                         </div>
 
-                        <input type="text"
+                        <input id="createFolder"
+                               type="text"
+                               autoFocus={true}
                                className="form-control"
                                aria-label="theFolderName"
                                placeholder="folder's name"
@@ -65,6 +71,7 @@ const CreatingFolder = () => {
                                    setFolderName(e.target.value)
                                }}
                         />
+
                     </div>
                     <img src={xsquare}
                          alt="cancel"

@@ -1,14 +1,13 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {findFolderByName, selectChosenFolder, selectDisplayedFolder, setFolderToDisplay} from "../features/folders/foldersSlice";
+import {useSelector} from "react-redux";
+import {selectDisplayedFolder} from "../features/folders/foldersSlice";
 import DisplayPhoto from "./displayPhoto";
 
 const ListFolder = () => {
     /** @type {Folder} */
     const folderToDisplay = useSelector(selectDisplayedFolder)
-    const dispatch = useDispatch()
-    // returns object {name, [ids]}
-    // const folder = dispatch(findFolderByName(folderName))
+
+    console.log("[ ListFolder ] folderToDisplay = ", folderToDisplay)
 
     return (
         <div className="center-list-folder">
@@ -16,11 +15,8 @@ const ListFolder = () => {
                 {folderToDisplay
                 && folderToDisplay.photos.map(photoId => {
                     return(
-                        <div className="folder">
-                            {photoId}
-                        </div>
+                        <DisplayPhoto pId={photoId}/>
                     )
-                    // return <DisplayPhoto id={photoId}/>
                 })}
             </div>
         </div>
